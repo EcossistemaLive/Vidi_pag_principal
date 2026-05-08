@@ -761,7 +761,7 @@ footer {
           <li>Material de aplicação pós-workshop</li>
         </ul>
         <div class="product-price">
-          Investimento sob consulta
+          Ingressos a partir de R$ 1.600
           <small>Formato presencial ou online ao vivo</small>
         </div>
       </div>
@@ -866,8 +866,7 @@ footer {
       <!-- Luiz Portal -->
       <div class="mentor-card reveal reveal-left">
         <div class="mentor-header">
-          <img src="luiz%20perfil.jpeg" alt="Luiz Portal" class="mentor-photo"
-               onerror="this.outerHTML='<div class=\'mentor-photo-placeholder\'>LP</div>'">
+          <img src="luiz%20perfil.jpeg" alt="Luiz Portal" class="mentor-photo" onerror="mentorPhotoError(this,'LP')">
           <div class="mentor-info">
             <h3 class="mentor-name">Luiz Portal</h3>
             <div class="mentor-role">Fundador · Mentor de CEOs e Líderes</div>
@@ -907,8 +906,7 @@ footer {
       <!-- Ibrahim Boufleur -->
       <div class="mentor-card reveal reveal-right">
         <div class="mentor-header">
-          <img src="Foto%20Ibrahim.jpeg" alt="Ibrahim Boufleur" class="mentor-photo"
-               onerror="this.outerHTML='<div class=\'mentor-photo-placeholder\'>IB</div>'">
+          <img src="Foto%20Ibrahim.jpeg" alt="Ibrahim Boufleur" class="mentor-photo" onerror="mentorPhotoError(this,'IB')">
           <div class="mentor-info">
             <h3 class="mentor-name">Ibrahim Boufleur</h3>
             <div class="mentor-role">Co-fundador · Especialista em Gestão e Escala</div>
@@ -1133,9 +1131,7 @@ footer {
         Brasília · Goiânia.
       </p>
       <p class="footer-brand-cnpj">
-        ViDi Formação Executiva<br>
-        CNPJ: 00.000.000/0001-00<br>
-        SCS Quadra 06 · Brasília · DF
+        Catalyst Educação LTDA
       </p>
     </div>
     <div>
@@ -1176,6 +1172,14 @@ footer {
 
 <!-- ══════ SCRIPTS ══════ -->
 <script>
+// Mentor photo fallback
+function mentorPhotoError(img, initials) {
+  var ph = document.createElement('div');
+  ph.className = 'mentor-photo-placeholder';
+  ph.textContent = initials;
+  img.parentNode.replaceChild(ph, img);
+}
+
 // Reading progress
 const bar = document.getElementById('reading-progress');
 window.addEventListener('scroll', () => {
