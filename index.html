@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ViDi — Formação Executiva para Líderes e CEOs</title>
 <meta name="description" content="A ViDi é o ecossistema de formação executiva mais sério do Brasil. Desenvolvemos líderes e CEOs que tomam decisões com clareza, constroem equipes que funcionam e escalam resultados.">
+<script>
+function mentorPhotoError(img, initials) {
+  var ph = document.createElement('div');
+  ph.className = 'mentor-photo-placeholder';
+  ph.textContent = initials;
+  if (img.parentNode) img.parentNode.replaceChild(ph, img);
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -216,8 +224,10 @@ section { position:relative; z-index:1; }
 .btn-secondary:hover { background:var(--gold-dim); transform:translateY(-2px); }
 /* Eagle SVG area */
 .hero-eagle {
-  position:absolute; right:5%; top:50%; transform:translateY(-50%);
-  width:340px; opacity:.08; pointer-events:none; z-index:0;
+  position:absolute; right:4%; top:50%; transform:translateY(-50%);
+  width:420px; height:auto;
+  opacity:.13; pointer-events:none; z-index:0;
+  filter: brightness(1.4) sepia(1) saturate(0.8) hue-rotate(5deg);
 }
 @media (max-width:900px) { .hero-eagle { display:none; } }
 
@@ -599,13 +609,8 @@ footer {
   <div class="hero-orb hero-orb-2"></div>
   <div class="hero-left-bar"></div>
 
-  <!-- Eagle watermark -->
-  <svg class="hero-eagle" viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M100 10 L60 50 L20 40 L40 80 L10 100 L50 110 L40 155 L70 145 L100 200 L130 145 L160 155 L150 110 L190 100 L160 80 L180 40 L140 50 Z" fill="currentColor" stroke="currentColor" stroke-width="2"/>
-    <ellipse cx="100" cy="90" rx="18" ry="22" fill="#05070A"/>
-    <circle cx="100" cy="82" r="6" fill="currentColor" opacity=".6"/>
-    <path d="M85 108 Q100 120 115 108" stroke="currentColor" stroke-width="2" fill="none"/>
-  </svg>
+  <!-- Eagle watermark — logo real ViDi -->
+  <img src="logo vidi.png" class="hero-eagle" alt="" aria-hidden="true">
 
   <div class="hero-content">
     <div class="hero-badge">
@@ -1131,7 +1136,8 @@ footer {
         Brasília · Goiânia.
       </p>
       <p class="footer-brand-cnpj">
-        Catalyst Educação LTDA
+        Catalyst Educação LTDA<br>
+        CNPJ: 64.465.973/0001-89
       </p>
     </div>
     <div>
@@ -1172,14 +1178,6 @@ footer {
 
 <!-- ══════ SCRIPTS ══════ -->
 <script>
-// Mentor photo fallback
-function mentorPhotoError(img, initials) {
-  var ph = document.createElement('div');
-  ph.className = 'mentor-photo-placeholder';
-  ph.textContent = initials;
-  img.parentNode.replaceChild(ph, img);
-}
-
 // Reading progress
 const bar = document.getElementById('reading-progress');
 window.addEventListener('scroll', () => {
